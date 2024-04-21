@@ -10,8 +10,6 @@ setuptools==65.6.3 ; python_version >= '3.7'
 werkzeug==2.2.2 ; python_version >= '3.7'
 zipp==3.11.0 ; python_version >= '3.7'
 aiohttp==3.7.4.post0
-anaconda-client==1.7.2
-anaconda-navigator==2.0.3
 appdirs==1.4.4
 APScheduler==3.9.1
 argh==0.26.2

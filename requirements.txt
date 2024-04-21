@@ -47,7 +47,6 @@ Flask-Cors==3.0.10
 Flask-SocketIO==4.3.1
 flask-sqlacodegen==1.1.8
 future==0.18.2
-gunicorn==21.2.0
 h11==0.14.0
 h5py==2.10.0
 HeapDict==1.0.1

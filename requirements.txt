@@ -21,3 +21,4 @@ websockets==11.0.3;
 openai==0.27.8;
 DateTime==4.4;
 bs4==0.0.0;
+Flask-Cors==3.0.10

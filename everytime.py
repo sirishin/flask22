@@ -42,6 +42,13 @@ def db():
             charset='utf8')
     cursor = conn.cursor()
     return (cursor, conn)
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', 'https://web-vueproject-754g42aluyx17vx.sel5.cloudtype.app')
+    response.headers.add('Access-Control-Allow-Credentials', 'true')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    return response
 
 @app.route('/api/start', methods=['GET'])
 def haee():

@@ -29,7 +29,7 @@ rlist = []
 app.secret_key = os.urandom(24)
 a=[]
 openai.api_key = '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'
-CORS(app, resources={r"/api/*":{"origins":"https://web-vueproject-754g42aluyx17vx.sel5.cloudtype.app/"}})
+CORS(app, resources={r"/api/*":{"origins":"*"}})
 starts = time.time()
 weather()
 oa =lunchs()

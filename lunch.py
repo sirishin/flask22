@@ -9,6 +9,9 @@ tourl = 'https://hyoyang.goeic.kr/meal/view.do?menuId=9562&year=%s&month=%s&day=
 print(url)
 pattern = r'\([^)]*\)'
 def lunchs():
+    if now != datetime.datetime.now():
+        now = datetime.datetime.now()
+        url = 'https://hyoyang.goeic.kr/meal/view.do?menuId=9562&year=%s&month=%s&day=%s' %(now.year,now.month,now.day)
     req = requests.get(url, verify=False)
     html = req.text
     soup = BeautifulSoup(html, 'html.parser')

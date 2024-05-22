@@ -3,7 +3,7 @@ import schedule
 import threading
 import json
 import copy
-from flask import Flask, jsonify, request, send_file
+from flask import Flask, jsonify, request, send_file, make_response
 import os
 import time
 import asyncio
@@ -19,7 +19,6 @@ import sys
 import openai
 from Weatherimformation import getValue, weather
 from datetime import datetime
-
 dt = datetime.now()
 sys.path.append('.')
 stopFlag = False
@@ -30,12 +29,11 @@ rlist = []
 app.secret_key = os.urandom(24)
 a=[]
 openai.api_key = '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'
-CORS(app)
+CORS(app, supports_credentials=True, origins:['https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/', 'https://web-vueproject-754g42aluyx17vx.sel5.cloudtype.app/'])
 starts = time.time()
 weather()
 oa =lunchs()
 tolu = tolunchs()
-
 def db():
     conn = pymysql.connect(host='183.99.87.90',
             user='root',
@@ -44,6 +42,13 @@ def db():
             charset='utf8')
     cursor = conn.cursor()
     return (cursor, conn)
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', 'https://web-vueproject-754g42aluyx17vx.sel5.cloudtype.app')
+    response.headers.add('Access-Control-Allow-Credentials', 'true')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    return response
 
 @app.route('/api/start', methods=['GET'])
 def haee():
@@ -110,6 +115,7 @@ def uploadapi():
 
 @app.route('/api/lunch', methods=['POST', 'GET'])
 def lunchapi():
+    print("KKK")
     return {'today':oa, 'tomorru':tolu}
 
 @app.route('/api/register', methods = ['GET','POST'])
@@ -240,6 +246,6 @@ wsc = WSC()
 
 th = threading.Thread(target=thred, name="wea")
 th.start()
-
+'npm install -g npm@10.5.2'
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0', port=5000)

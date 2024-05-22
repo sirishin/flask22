@@ -108,6 +108,7 @@ def uploadapi():
 
 @app.route('/api/lunch', methods=['POST', 'GET'])
 def lunchapi():
+    print("KKK")
     return {'today':oa, 'tomorru':tolu}
 
 @app.route('/api/register', methods = ['GET','POST'])

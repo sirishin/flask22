@@ -19,7 +19,7 @@ def lunchs():
         print(a)
         a = a.select('span')[0].get_text().strip()
         print(a)
-        a = str.replace("\"", "")
+        # a = str.replace("\"", "")
         z = re.sub(pattern=pattern, repl='', string=a)
         oa = z.split('ㆍ')
         print(oa)
@@ -35,8 +35,8 @@ def tolunchs():
         print(tolu)
         tolu = tolu.select('span')[0].get_text().strip()
         print(tolu)
-        tolu = tolu\
-            .replace("\"", "")
+        # tolu = tolu\
+        #     .replace("\"", "")
         z = re.sub(pattern=pattern, repl='', string=tolu)
         tolu = z.split('ㆍ')
         print(tolu)

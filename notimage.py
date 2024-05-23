@@ -147,7 +147,7 @@ def psmentscollec(i):
     data = data['coments']
     other = findee(data['id'], data['num'])
     sql = "INSERT INTO comentbox (coment, num, ID, ananius, tim, timekey) VALUES ('%s', '%s', '%s', '%s', '%s', '%s')" % (
-    data['ment'], data['num'][0], data['id'], other, time.strftime('%Y-%m-%d/%I:%M', time.localtime(time.time())),
+    data['ment'], data['num'][0], data['id'], other, time.strftime('%Y-%m-%d', time.localtime(time.time())),
     time.time())
     cursor, conn = db()
     cursor.execute(sql)

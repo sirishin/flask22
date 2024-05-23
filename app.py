@@ -106,6 +106,7 @@ def wantmentapi(i):
 
 @app.route('/api/everything/<i>', methods=['POST','PUT','DELETE'])
 def everythin(i):
+    print(1222)
     everything(i)
     return '132'
 @app.route('/api/updata', methods=['POST','GET'])

@@ -93,7 +93,7 @@ def everything(i):
         data = request.get_json()
         print(data)
         data = data['tc']
-        if '교감' in data['content'] or '민형' in data['content']:
+        if '교감' in data['content'] or '민형' in data['content'] or '시발' in data['content'] or 'ㅅㅂ' in data['content'] or 'ㅂㅅ' in data['content'] or '병신' in data['content']:
             return 'fail recieve'
         sql = "INSERT INTO comunity ( title, ID, views, content, times) VALUES ( '%s', '%s', '%s', '%s', '%s')" % (
         data['title'], data['id'], 0, data['content'], times)

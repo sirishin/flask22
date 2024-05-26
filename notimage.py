@@ -93,6 +93,8 @@ def everything(i):
         data = request.get_json()
         print(data)
         data = data['tc']
+        if '교감' in data['content'] or '민형' in data['content']:
+            return 'fail recieve'
         sql = "INSERT INTO comunity ( title, ID, views, content, times) VALUES ( '%s', '%s', '%s', '%s', '%s')" % (
         data['title'], data['id'], 0, data['content'], times)
         cursor, conn = db()

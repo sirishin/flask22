@@ -16,7 +16,7 @@ def lunchs():
             di[b] = '오늘 중식은 없습니다'
         else:
             a = soup.select('td')[2]
-            # print(a)
+            print(a)
             a = a.select('span')[0].get_text().strip()
             # print("dfs"+a)
             # a = str.replace("\"", "")

@@ -33,7 +33,7 @@ CORS(app, supports_credentials=True, origins=["https://web-vueproject-754g42aluy
 starts = time.time()
 weather()
 oa =lunchs()
-tolu = tolunchs()
+# tolu = tolunchs()
 def db():
     conn = pymysql.connect(host='183.99.87.90',
             user='root',
@@ -117,7 +117,7 @@ def uploadapi():
 @app.route('/api/lunch', methods=['POST', 'GET'])
 def lunchapi():
     print("KKK")
-    return {'today':oa, 'tomorru':tolu}
+    return oa
 
 @app.route('/api/register', methods = ['GET','POST'])
 def registe():

@@ -12,7 +12,7 @@ from profile import pro
 from image import start,deletes, psmentscollecs, gmentscollecs, update,photodelement
 from notimage import need, psmentscollec, gmentscollec, everything, delement
 from businfo import busnoseon
-from lunch import lunchs, tolunchs
+from lunch import lunchs
 from login import register,log
 from flask_cors import CORS
 import sys

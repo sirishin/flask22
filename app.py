@@ -247,6 +247,12 @@ def thred():
 
 clients = set()
 
+def looooop():
+    start_server = websockets.serve(handler, '0.0.0.0', 5000)
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(start_server)
+    loop.run_forever()
+
 async def handler(websocket, path):
     clients.add(websocket)
     try:
@@ -255,8 +261,8 @@ async def handler(websocket, path):
     finally:
         clients.remove(websocket)
 
-start_server = websockets.serve(handler, '0.0.0.0', 5000)
-
+thss = threading.Thread(target=looooop, name="loc")
+thss.start()
 ths = threading.Thread(target=handler, name="chat")
 ths.start()
 th = threading.Thread(target=thred, name="wea")

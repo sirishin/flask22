@@ -136,115 +136,129 @@ def thred():
         schedule.run_pending()
         time.sleep(1)
 
-class WSC:
-    result = dict()
-    num = 0
-    info = dict()
-    def __init__(self):
-        self.businfos()
-        self.websocketss=[]
-        th2 = threading.Thread(target=self.websocket)
-        th = threading.Thread(target=self.worker)
-        th3 = threading.Thread(target=self.resu)
-        th.start()
-        th2.start()
-        th3.start()
-        schedule.every(1).minutes.do(self.businfos)
-        # print(122)
-    # def message(self):
-        # self.result = "sdaf"
-        # print("schedule running")
+# class WSC:
+#     result = dict()
+#     num = 0
+#     info = dict()
+#     def __init__(self):
+#         self.businfos()
+#         self.websocketss=[]
+#         th2 = threading.Thread(target=self.websocket)
+#         th = threading.Thread(target=self.worker)
+#         th3 = threading.Thread(target=self.resu)
+#         th.start()
+#         th2.start()
+#         th3.start()
+#         schedule.every(1).minutes.do(self.businfos)
+#         # print(122)
+#     # def message(self):
+#         # self.result = "sdaf"
+#         # print("schedule running")
 
-    def worker(self):
-        while True:
-            schedule.run_pending()
-            time.sleep(1)
+#     def worker(self):
+#         while True:
+#             schedule.run_pending()
+#             time.sleep(1)
 
-    def websocket(self):
-        new_loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(new_loop)
+#     def websocket(self):
+#         new_loop = asyncio.new_event_loop()
+#         asyncio.set_event_loop(new_loop)
 
-        loop = asyncio.get_event_loop()
-        loop.run_until_complete(websockets.serve(self.accept, "127.0.0.1", 8800))
-        loop.run_forever();
-    def businfos(self):
-        # print(1232)
-        url = "230000041"
-        hynics = "230000215"
-        icheon = "230001156"
-        bubal = "230000865"
-        self.cho = busnoseon(url)
-        self.apt = busnoseon(hynics)
-        self.ic = busnoseon(icheon)
-        self.bb = busnoseon(bubal)
-        self.result['bb'] = self.bb
-        self.result['ic'] = self.ic
-        self.result['apt'] = self.apt
-        self.result['cho'] = self.cho
-        if self.num == 0:
-            self.result['type'] = 'businfo'
-        else:
-            self.result['type'] = 'bus'
-        # print(self.result)
-            # print(self.resu())
-        return 1
-    # def help(self):
-    def resu(self):
-        # print('emfdjdha')
-        # loops = asyncio.get_event_loop()
-        while True:
-            if self.info == self.result:
-                # print(id(self.result))
-                # print(id(self.info))
-                # print('같음')
-                pass
-            else:
-                # print('다름')
-                self.info = copy.deepcopy(self.result)
-                # self.backdata()
-                asyncio.run(self.backdata())
-                # loops.run_until_complete(self.backdata())
-                # loops.run_forever()
-                # print(id(self.info), id(self.result))
-                # print('tlfgodehla')
-    async def accept(self, websocket, path):
-        # while True:
-        # print('접속함')
-        # self.resu()
-        # print(self.info)
-        await websocket.send(json.dumps(self.info))
-        self.websocketss.append(websocket)
-        # print('dnpq')
-        # print(self.info)
-        # print(self.websocketss)
-        # # for b in websocket:
-        # print(32)
-    async def backdata(self):
-        # print(1232131231)
-        # print(self.websocketss)
-        for b in self.websocketss:
-            # print('보내기')
-            # print(b)
-            # print(self.info)
-            try:
-                await b.send(json.dumps(self.info))
-                # print('보냄')
-            except:
-                self.websocketss.remove(b)
-                # print(self.websocketss)
-                # print('error')
-                continue
-        # try:
-        #     # data = await websocket.recv()  # 클라이언트로부터 메시지를 대기한다.
-        #     # print("receive : " + data)
-        #     a = self.resu()
-        #     await websocket.send(json.dumps(a))
-        #     print(39)
-        # except:
-        #     pass
+#         loop = asyncio.get_event_loop()
+#         loop.run_until_complete(websockets.serve(self.accept, "127.0.0.1", 8800))
+#         loop.run_forever();
+#     def businfos(self):
+#         # print(1232)
+#         url = "230000041"
+#         hynics = "230000215"
+#         icheon = "230001156"
+#         bubal = "230000865"
+#         self.cho = busnoseon(url)
+#         self.apt = busnoseon(hynics)
+#         self.ic = busnoseon(icheon)
+#         self.bb = busnoseon(bubal)
+#         self.result['bb'] = self.bb
+#         self.result['ic'] = self.ic
+#         self.result['apt'] = self.apt
+#         self.result['cho'] = self.cho
+#         if self.num == 0:
+#             self.result['type'] = 'businfo'
+#         else:
+#             self.result['type'] = 'bus'
+#         # print(self.result)
+#             # print(self.resu())
+#         return 1
+#     # def help(self):
+#     def resu(self):
+#         # print('emfdjdha')
+#         # loops = asyncio.get_event_loop()
+#         while True:
+#             if self.info == self.result:
+#                 # print(id(self.result))
+#                 # print(id(self.info))
+#                 # print('같음')
+#                 pass
+#             else:
+#                 # print('다름')
+#                 self.info = copy.deepcopy(self.result)
+#                 # self.backdata()
+#                 asyncio.run(self.backdata())
+#                 # loops.run_until_complete(self.backdata())
+#                 # loops.run_forever()
+#                 # print(id(self.info), id(self.result))
+#                 # print('tlfgodehla')
+#     async def accept(self, websocket, path):
+#         # while True:
+#         # print('접속함')
+#         # self.resu()
+#         # print(self.info)
+#         await websocket.send(json.dumps(self.info))
+#         self.websocketss.append(websocket)
+#         # print('dnpq')
+#         # print(self.info)
+#         # print(self.websocketss)
+#         # # for b in websocket:
+#         # print(32)
+#     async def backdata(self):
+#         # print(1232131231)
+#         # print(self.websocketss)
+#         for b in self.websocketss:
+#             # print('보내기')
+#             # print(b)
+#             # print(self.info)
+#             try:
+#                 await b.send(json.dumps(self.info))
+#                 # print('보냄')
+#             except:
+#                 self.websocketss.remove(b)
+#                 # print(self.websocketss)
+#                 # print('error')
+#                 continue
+#         # try:
+#         #     # data = await websocket.recv()  # 클라이언트로부터 메시지를 대기한다.
+#         #     # print("receive : " + data)
+#         #     a = self.resu()
+#         #     await websocket.send(json.dumps(a))
+#         #     print(39)
+#         # except:
+#         #     pass
 
-wsc = WSC()
+# wsc = WSC()
 
+clients = set()
+
+async def handler(websocket, path):
+    clients.add(websocket)
+    try:
+        async for message in websocket:
+            await asyncio.wait([client.send(message) for client in clients])
+    finally:
+        clients.remove(websocket)
+
+start_server = websockets.serve(handler, '0.0.0.0', 5000)
+
+ths = threading.Thread(target=handler, name="chat")
+ths.start()
 th = threading.Thread(target=thred, name="wea")
 th.start()
 'npm install -g npm@10.5.2'

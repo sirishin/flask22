@@ -263,8 +263,6 @@ async def handler(websocket, path):
 
 thss = threading.Thread(target=looooop, name="loc")
 thss.start()
-ths = threading.Thread(target=handler, name="chat")
-ths.start()
 th = threading.Thread(target=thred, name="wea")
 th.start()
 'npm install -g npm@10.5.2'

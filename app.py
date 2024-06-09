@@ -248,7 +248,7 @@ def thred():
 clients = set()
 
 def looooop():
-    start_server = websockets.serve(handler, '0.0.0.0', 5000)
+    start_server = websockets.serve(handler, 'https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/', 8080)
     loop = asyncio.get_event_loop()
     loop.run_until_complete(start_server)
     loop.run_forever()

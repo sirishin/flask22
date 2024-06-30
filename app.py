@@ -138,6 +138,7 @@ def stampretrun():
     sqql = "SELECT id FROM stamp"
     cursor.execute(sqql)
     a = cursor.fetchall()
+    hp=0
     for k in a:
         if k[0] == ids:
             hp = 1

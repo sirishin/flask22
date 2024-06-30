@@ -128,6 +128,16 @@ def weathersearch():
     di = getValue()
     return di
 
+@app.route('/api/stampretrun')
+def stampretrun():
+    cursor, conn = db()
+    data = request.get_json()
+    ids = data['id']
+    stams = data['stamp']
+    sql = "INSERT INTO stamp (id,stamnumber) VALUES ('%s', '%s')" %(ids,stams)
+    cursor.execute(sql)
+    conn.commit()
+    return 1
 
 schedule.every().day.at("17:03:00").do(weather)
 def thred():

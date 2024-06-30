@@ -135,8 +135,18 @@ def stampretrun():
     print(data)
     ids = data['datsa']['id']
     stams = data['datsa']['stamp']
-    sql = "INSERT INTO stamp (id,stamnumber) VALUES ('%s', '%s')" %(ids,stams)
-    cursor.execute(sql)
+    sqql = "SELECT id FROM stamp"
+    cursor.execute(sqql)
+    a = cursor.fetchall()
+    for k in a:((1),(2),
+        if k[0] == ids:
+            hp = 1
+    if hp == 1:
+        sql = "UPDATE stamp SET (id,stamnumber) VALUES ('%s', '%s')" %(ids,stams)
+        cursor.execute(sql)
+    else:
+        sql = "INSERT INTO stamp (id,stamnumber) VALUES ('%s', '%s')" %(ids,stams)
+        cursor.execute(sql)
     conn.commit()
     return '1'
 

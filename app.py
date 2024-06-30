@@ -143,7 +143,7 @@ def stampretrun():
         if k[0] == ids:
             hp = 1
     if hp == 1:
-        sql = "UPDATE stamp SET (id,stamnumber) VALUES ('%s', '%s')" %(ids,stams)
+        sql = "UPDATE stamp SET stamnumber='%s' WHERE id = '%s'" %(stams,ids)
         cursor.execute(sql)
     else:
         sql = "INSERT INTO stamp (id,stamnumber) VALUES ('%s', '%s')" %(ids,stams)

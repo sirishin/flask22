@@ -133,8 +133,8 @@ def stampretrun():
     cursor, conn = db()
     data = request.get_json()
     print(data)
-    ids = data['id']
-    stams = data['stamp']
+    ids = data['datsa']['id']
+    stams = data['datsa']['stamp']
     sql = "INSERT INTO stamp (id,stamnumber) VALUES ('%s', '%s')" %(ids,stams)
     cursor.execute(sql)
     conn.commit()

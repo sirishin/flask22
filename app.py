@@ -138,7 +138,7 @@ def stampretrun():
     sql = "INSERT INTO stamp (id,stamnumber) VALUES ('%s', '%s')" %(ids,stams)
     cursor.execute(sql)
     conn.commit()
-    return 1
+    return '1'
 
 schedule.every().day.at("17:03:00").do(weather)
 def thred():

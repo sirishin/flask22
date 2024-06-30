@@ -255,24 +255,24 @@ def thred():
 
 # wsc = WSC()
 
-clients = set()
+# clients = set()
 
-def looooop():
-    start_server = websockets.serve(handler, 'port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/', 8080)
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(start_server)
-    loop.run_forever()
+# def looooop():
+#     start_server = websockets.serve(handler, 'port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/', 8080)
+#     loop = asyncio.get_event_loop()
+#     loop.run_until_complete(start_server)
+#     loop.run_forever()
 
-async def handler(websocket, path):
-    clients.add(websocket)
-    try:
-        async for message in websocket:
-            await asyncio.wait([client.send(message) for client in clients])
-    finally:
-        clients.remove(websocket)
+# async def handler(websocket, path):
+#     clients.add(websocket)
+#     try:
+#         async for message in websocket:
+#             await asyncio.wait([client.send(message) for client in clients])
+#     finally:
+#         clients.remove(websocket)
 
-thss = threading.Thread(target=looooop, name="loc")
-thss.start()
+# thss = threading.Thread(target=looooop, name="loc")
+# thss.start()
 th = threading.Thread(target=thred, name="wea")
 th.start()
 'npm install -g npm@10.5.2'

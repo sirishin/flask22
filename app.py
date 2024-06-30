@@ -128,7 +128,7 @@ def weathersearch():
     di = getValue()
     return di
 
-@app.route('/api/stampretrun')
+@app.route('/api/stampretrun' , methods=['POST','GET'])
 def stampretrun():
     cursor, conn = db()
     data = request.get_json()

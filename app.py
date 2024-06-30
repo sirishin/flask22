@@ -139,7 +139,7 @@ def stampretrun():
     cursor.execute(sqql)
     a = cursor.fetchall()
     for k in a:((1),(2),
-        if k[0] == ids:
+        if k == ids:
             hp = 1
     if hp == 1:
         sql = "UPDATE stamp SET (id,stamnumber) VALUES ('%s', '%s')" %(ids,stams)

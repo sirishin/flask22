@@ -138,8 +138,8 @@ def stampretrun():
     sqql = "SELECT id FROM stamp"
     cursor.execute(sqql)
     a = cursor.fetchall()
-    for k in a:((1),(2),
-        if k == ids:
+    for k in a:
+        if k[0] == ids:
             hp = 1
     if hp == 1:
         sql = "UPDATE stamp SET (id,stamnumber) VALUES ('%s', '%s')" %(ids,stams)

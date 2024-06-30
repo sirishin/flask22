@@ -132,6 +132,7 @@ def weathersearch():
 def stampretrun():
     cursor, conn = db()
     data = request.get_json()
+    print(data)
     ids = data['id']
     stams = data['stamp']
     sql = "INSERT INTO stamp (id,stamnumber) VALUES ('%s', '%s')" %(ids,stams)

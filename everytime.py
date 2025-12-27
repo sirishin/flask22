@@ -37,7 +37,7 @@ tolu = tolunchs()
 def db():
     conn = pymysql.connect(host='183.99.87.90',
             user='root',
-            password='swhacademy!',
+            password='!',
             db='Hee',
             charset='utf8')
     cursor = conn.cursor()
@@ -249,3 +249,4 @@ th.start()
 'npm install -g npm@10.5.2'
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0', port=5000)
+

@@ -5,7 +5,7 @@ import time
 def db():
     conn = pymysql.connect(host='183.99.87.90',
             user='root',
-            password='swhacademy!',
+            password='!',
             db='Hee',
             charset='utf8')
     cursor = conn.cursor()

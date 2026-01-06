@@ -6,7 +6,7 @@ import json
 def db():
     conn = pymysql.connect(host='183.99.87.90',
             user='root',
-            password='!',
+            password='swhacademy!',
             db='Hee',
             charset='utf8')
     cursor = conn.cursor()

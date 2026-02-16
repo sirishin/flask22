@@ -19,7 +19,7 @@ def weather():
     rlist.clear()
     wlist.clear()
     items.clear()
-    rl ='https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=ZDMu4srGbL6dNMIQjdFq%2FH9rfT3pg0fsyEDjNIhpfNxMLSTnJNMK%2FcCG5CkIuLfp5%2BwAcRdFUpfQaSOhTPBo2g%3D%3D&pageNo=1&numOfRows=1000&dataType=XML&base_date={0}&base_time=0500&nx=69&ny=121'.format(dt.strftime("%Y%m%d"))
+    rl ='https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=%2FH9rfT3pg0fsyEDjNIhpfNxMLSTnJNMK%2FcCG5CkIuLfp5%2BwAcRdFUpfQaSOhTPBo2g%3D%3D&pageNo=1&numOfRows=1000&dataType=XML&base_date={0}&base_time=0500&nx=69&ny=121'.format(dt.strftime("%Y%m%d"))
     getting = requests.get(rl)
     soups = BeautifulSoup(getting.text, 'html.parser')
     for b in soups.find_all("item"):
@@ -44,9 +44,9 @@ def weather():
                 continue
 
     if  dt.strftime("%H")== "18" :
-        url = 'https://apihub.kma.go.kr/api/typ02/openApi/WthrChartInfoService/getSurfaceChart?pageNo=1&numOfRows=10&dataType=XML&code=12&time={0}&authKey=bQ0AqCTxTIqNAKgk8SyK5A'.format(dt.strftime("%Y%m%d"))
+        url = 'https://apihub.kma.go.kr/api/typ02/openApi/WthrChartInfoService/getSurfaceChart?pageNo=1&numOfRows=10&dataType=XML&code=12&time={0}&authKey='.format(dt.strftime("%Y%m%d"))
     else:
-        url = 'https://apihub.kma.go.kr/api/typ02/openApi/WthrChartInfoService/getSurfaceChart?pageNo=1&numOfRows=10&dataType=XML&code=12&time={0}&authKey=bQ0AqCTxTIqNAKgk8SyK5A'.format(yd.strftime("%Y%m%d"))
+        url = 'https://apihub.kma.go.kr/api/typ02/openApi/WthrChartInfoService/getSurfaceChart?pageNo=1&numOfRows=10&dataType=XML&code=12&time={0}&authKey='.format(yd.strftime("%Y%m%d"))
     resul = requests.get(url)
     soup = BeautifulSoup(resul.text, 'html.parser')
     item = soup.find_all("man-file")
